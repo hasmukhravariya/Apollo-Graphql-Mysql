@@ -1,0 +1,50 @@
+type Query{
+ getUserDetails: [users]
+ getUser(id: ID!): users
+}
+
+type users {
+   id: ID!,
+   name:String,
+   email:String,
+   username:String,
+   password:String,
+   image:String,
+   address:String,
+   phone: String,
+   gender:GenderStateEnum
+}
+
+enum GenderStateEnum {
+  Male
+  Female
+  others
+}
+
+
+type Mutation {
+   createuser(
+     name:String,
+     email:String,
+     username:String,
+     password:String,
+     image:String,
+     address:String,
+     phone: String,
+     gender:GenderStateEnum
+   ): users
+
+  updateuser(
+    id: ID!,
+    name:String,
+    email:String,
+    username:String,
+    password:String,
+    image:String,
+    address:String,
+    phone: String,
+    gender:GenderStateEnum  
+  ) : users
+
+  deleteuser(id: ID!): String
+}
